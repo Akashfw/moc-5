@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="https://cdn.socket.io/4.6.0/socket.io.min.js" integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Voting app</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        #main{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 70px;
+        }
+        table{
+            padding: 10px;
+            width: 550px;
+            height: 250px;
+            color: white;
+            border: 2px solid black;
+            font-family: serif;
+            border-radius: 7px;
+        }
+        tr:nth-child(1){
+             background-color: rgb(75, 75, 235);
+             
+        }
+        tr{
+            background-color: lightseagreen;
+        }
+        h1{
+            margin-top: 15px;
+            color: blue;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>Masai Senate Voting System</h1>
+    <div id="main">
+        
+        <table>
+            <tr>
+                <th>No's</th>
+                <th>Name</th>
+                <th>Post</th>
+                <th>Vote</th>
+                <th>Total Votes</th>
+              </tr>
+              <tr id="votes">
+                <td>1</td>
+                <td>Akash</td>
+                <td>Senate</td>
+                <td ><i style="font-size:24px" class="fa">&#xf087;</i></td>
+                <td>0</td>
+              </tr>
+              <div id="vote">
+                <tr>
+                <td>2</td>
+                <td>Aman</td>
+                <td>Senate</td>
+                <td ><i style="font-size:24px" class="fa">&#xf087;</i></td>
+                <td>0</td>
+              </tr>
+            </div>
+              
+              <tr>
+                <td>3</td>
+                <td>Abhishek</td>
+                <td>Senate</td>
+                <td ><i style="font-size:24px" class="fa">&#xf087;</i></td>
+                <td>0</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>Arun</td>
+                <td>Senate</td>
+                <td ><i style="font-size:24px" class="fa">&#xf087;</i></td>
+                <td>0</td>
+              </tr>
+        </table>
+    </div>
+</body>
+<script>
+ 
+ const socket= io("http://localhost:8080/",{transports:["websocket"]});
+
+    let vote= document.querySelector("#votes");
+
+    vote.addEventListener("click",(e)=>{
+        e.preventDefault();
+        let data= e.currentTarget.innerText.split("");
+        data=data[data.length-1];
+        socket.emit("UserVote",socket.id)
+    })
+</script>
+</html>
