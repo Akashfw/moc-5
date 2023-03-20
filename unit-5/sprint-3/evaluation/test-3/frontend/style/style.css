@@ -2,3 +2,21 @@
     display: flex;
     justify-content: space-evenly;
 }
+#left{
+    width: 30%;
+    background-color: rgb(5, 61, 61);
+    color: white;
+    padding: 10px;
+    height: 100%;
+}
+#right{
+    width: 70%;
+    background-color: aqua;
+    color: black;
+   height: 1fr;
+   padding-left: 20px;
+}
+form{
+    margin-top: 220px;
+    margin-bottom: 5px;
+}
