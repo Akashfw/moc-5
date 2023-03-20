@@ -52,5 +52,11 @@ socket.on("roomUsers",({room,users})=>{
 });
 
 function outputuser(users){
-    
+    userPresent.innerText="";
+
+    users.forEach(elem => {
+        const li = document.createElement("li");
+        li.innerText=elem.username;
+        userPresent.appendChild(li)
+    });
 }
