@@ -33,3 +33,24 @@ function outputMsg(message){
     
 }
 
+chatform.addEventListener("submit",(e)=>{
+    e.preventDefault();
+
+    let msg= e.target.elements.msg.value;
+    msg= msg.trim();
+
+    if(!msg){
+        return false;
+    }
+    socket.emit("chatMessage",msg);
+    e.target.elements.msg.value="";
+});
+
+socket.on("roomUsers",({room,users})=>{
+    roomname.innerText=room;
+    outputuser(users)
+});
+
+function outputuser(users){
+    
+}
