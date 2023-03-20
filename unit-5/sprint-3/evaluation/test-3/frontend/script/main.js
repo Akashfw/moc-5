@@ -61,6 +61,6 @@ function outputuser(users){
 
 
 document.querySelector("#leave-btn").addEventListener("click",()=>{
-    window.location.href("http://127.0.0.1:5500/unit-5/sprint-3/evaluation/test-3/frontend/index.html")
+    window.location.replace("index.html")
 
 })

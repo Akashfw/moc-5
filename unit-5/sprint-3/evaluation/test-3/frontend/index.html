@@ -4,6 +4,54 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            background-color: aqua;
+            color: white;
+            text-align: center;
+        }
+       #main{
+           display: flex;
+           justify-content: center;
+           margin-top: 100px;
+           
+           
+           
+       }
+       form{
+           color: white;
+           padding: 20px;
+           width: 40%;
+           border: 2px solid black;
+           height: 200px;
+           background-color: white;
+           border-radius: 10px;
+       }
+       input{
+           background-color: white;
+           border: 0.5px solid silver;
+           border-radius: 8px;
+           padding: 5px;
+           margin: 20px;
+       }
+       label{
+           color: black;
+           background-color: white;
+       }
+       form div{
+           background-color: white;
+       }
+       button{
+           padding: 5px 80px;
+           background-color: white;
+           color: aqua;
+           border: 1px solid silver;
+           border-radius: 5px;
+           margin-top: 10px;
+       }
+    </style>
     <title>Chat Application</title>
 </head>
 <body>
@@ -11,7 +59,7 @@
         <header>
             <h1>Chat Application</h1>
         </header>
-        <main>
+        <main id="main">
             <form action="chat.html">
                 <div>
                     <label for="username">Username</label>

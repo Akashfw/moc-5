@@ -29,7 +29,6 @@ io.on("connection",(socket)=>{
 
      socket.on("chatMessage",(msg)=>{
          const user= getcurrentUser(socket.id)[0];
-          console.log(user)
          io.to(user.room).emit("message",formateMessage(user.username,msg))
      })
 
