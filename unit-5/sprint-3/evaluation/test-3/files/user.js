@@ -6,9 +6,7 @@ function userJoin(id,username,room){
     return user;
 }
 
-const getRoomusers = (room)=>{
-    return users.filter(user=>user.room==room)
-}
+
 
 const userLeave= (id)=>{
     const index=  users.findIndex(user=>user.id==id);
@@ -17,9 +15,12 @@ const userLeave= (id)=>{
         return users.splice(index,1)[0];
     }
 }
-
-const getcurrentUser= (id)=>{
+const getRoomusers = (room)=>{
     return users.filter(user=>user.room==room)
+}
+
+const getcurrentUser = (id)=>{
+    return users.filter(user=>user.id==id)
 }
 module.exports={
     userJoin,

@@ -35,10 +35,8 @@ function outputMsg(message){
 
 chatform.addEventListener("submit",(e)=>{
     e.preventDefault();
-
     let msg= e.target.elements.msg.value;
     msg= msg.trim();
-
     if(!msg){
         return false;
     }
@@ -60,3 +58,9 @@ function outputuser(users){
         userPresent.appendChild(li)
     });
 }
+
+
+document.querySelector("#leave-btn").addEventListener("click",()=>{
+    window.location.href("http://127.0.0.1:5500/unit-5/sprint-3/evaluation/test-3/frontend/index.html")
+
+})
