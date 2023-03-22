@@ -6,7 +6,8 @@ const jwt= require('jsonwebtoken');
 const fs= require("fs");
 const {authenticate}= require("./middleware/authenticate")
 const {connection}=require('./config/db');
-const {UserModel}= require('./models/user_model')
+const {UserModel}= require('./models/user_model');
+const { json } = require("express");
 app.use(express.json());
 
 
@@ -14,7 +15,7 @@ app.use(express.json());
 const client = redis.createClient();
 
 client.on("error", (err) => console.log(err, "ERROR in REDIS"));
-client.connect();
+
 
 app.get("/",async (req,res)=>{
     let responce= await client.GET("name");
@@ -44,13 +45,14 @@ app.post("/login", async (req, res) => {
         res.send("Please signup first")
     }
     const hashedpwd = user?.pass
-    bcrypt.compare(pass, hashedpwd, function(err, result) {
+    bcrypt.compare(pass, hashedpwd,async function(err, result) {
         if(result){
             const token = jwt.sign({userID : user._id}, "SECRET", {expiresIn : '1h'})
             const refresh_token = jwt.sign({userID : user._id}, "REFRESH_SECRET", {expiresIn : '7d'});
-             client.SET("user_token",token);
+              client.SET("user_token",token);
              client.EXPIRE("user_token", 3600);
-             
+             const tokn = await client.GET("user_token");
+            console.log(tokn);
             res.send({msg : "login successfull", token, refresh_token})
         }
         else{
@@ -66,14 +68,17 @@ app.get("/reports", authenticate, (req, res) => {
 
 app.get("/logout",async (req, res) => {
     const token = await client.GET("user_token");
-    await client.RPUSH("blacklist",token)
-    console.log(token)
+    await client.RPUSH("blacklist",token);
+    let data = await client.LRANGE("blacklist",0,-1);
+
+    console.log(data)
 
     res.send("Logged out successfully")
 })
 
 app.listen(8080, async ()=>{
     try {
+        await client.connect();
         await connection
         console.log("connected to DB")
     } catch (err) {
