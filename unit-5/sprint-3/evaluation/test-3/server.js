@@ -35,7 +35,6 @@ io.on("connection",(socket)=>{
     socket.on("disconnect",()=>{
         console.log("user has left")
         const user= userLeave(socket.id);
-
         io.to(user.room).emit("message",formateMessage(boatname,`${user.username} has left the chat`));
 
         io.to(user.room).emit("roomUsers",{
