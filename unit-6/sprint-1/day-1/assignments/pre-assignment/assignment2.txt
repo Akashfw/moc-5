@@ -1,0 +1,10 @@
+1) What are different SQL databases? 
+ans => 1. MySQL
+       2. PostgreSQL
+       3. Microsoft SQL Server
+       4. SQLite
+
+2)What are RDBMS? 
+ans => A relational database management system (RDBMS) is a collection of programs and capabilities that enable IT teams and others to create, update, administer and otherwise interact with a relational database. RDBMSes store data in the form of tables, with most commercial relational database management systems using Structured Query Language (SQL) to access the database. However, since SQL was invented after the initial development of the relational model, it is not necessary for RDBMS use.
+
+The RDBMS is the most popular database system among organizations across the world. It provides a dependable method of storing and retrieving large amounts of data while offering a combination of system performance and ease of implementation.       

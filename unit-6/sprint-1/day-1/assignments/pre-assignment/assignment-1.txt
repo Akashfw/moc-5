@@ -1,0 +1,21 @@
+1) creating Schema =>
+
+create table nxm301.users
+(
+userID int,
+fristname varchar(25),
+email varchar(25),
+city varchar(25)
+);
+
+----------------------------------------------------------------------------
+
+2) inserting data in table =>
+
+insert into nxm301.users(userID,fristname,email,city)
+values(1,"Akash","akash@gmail.com","Raipur");
+------------------------------------------------------------------------------
+
+3) getting data =>
+
+SELECT * FROM nxm301.users;

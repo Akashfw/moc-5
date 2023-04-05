@@ -29,7 +29,7 @@ app.use(Expresswinston.logger({
             json:true
         })
     ]
-}))
+}));
 
 
 const client = redis.createClient({
