@@ -1,0 +1,10 @@
+1) An operation performed to Add any batsman.
+2) An operation performed to update batsman score.
+3) An operation performed to Delete any batsman data.
+4) An operation performed to update his playing order.
+5) An operation performed to update player type.
+6) An operation performed to read the player with most runs.
+7) An operation performed to filter the player from a particular city.
+8) An operation performed to get the name of youngest player in the team.
+9) An operation performed to get all the all-rounder players.
+10) An operation performed to get all the batsman or bowler.

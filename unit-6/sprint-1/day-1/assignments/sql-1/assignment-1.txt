@@ -1,0 +1,6 @@
+1) We can store Cricket Player name and his total runs in the form of row and column.
+2) We can store our income and expenses in the form of row and column.
+3) We can store name and Mobile number in row and column.
+4) row and column data structure can be used in train or bus ticketing system to store user name and his seat number.
+5) We can use it in our banks to store account number and total money in the account.
+
