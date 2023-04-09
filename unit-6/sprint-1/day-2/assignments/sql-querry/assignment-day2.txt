@@ -1,0 +1,51 @@
+1) SELECT * FROM borrow
+WHERE amount BETWEEN 2000 AND 3000;
+
+2) SELECT * FROM deposit
+
+3) SELECT actno,cname FROM deposit
+
+4) SELECT * FROM customer
+WHERE city="NAGPUR";
+
+5) SELECT * FROM deposit
+WHERE adate > "1995-11-17";
+
+6) SELECT actno,amount FROM deposit
+WHERE adate between "1995-12-01" and "1996-06-01";
+
+7) SELECT * FROM deposit
+WHERE cname like "C%";
+
+8) SELECT * FROM borrow
+WHERE cname like "_U%";
+
+9) SELECT * FROM deposit
+WHERE bname="CHANDNI" or bname="MGROAD";
+
+10) SELECT * FROM deposit
+WHERE bname <>"CHANDNI" and bname<>"MGROAD";
+
+11) SELECT * FROM deposit
+WHERE amount > 1000
+order by cname
+
+12) SELECT * FROM deposit
+WHERE amount > 1000
+order by cname desc
+
+13) SELECT * FROM borrow
+WHERE cname like "__A%" or cname like "__D%";
+
+14) SELECT * FROM borrow
+WHERE amount < 2000 and amount >8000;
+
+15) SELECT distinct * FROM deposit
+
+16) UPDATE deposit
+SET amount=amount*1.1
+WHERE bname="VRCE"
+
+17) UPDATE deposit
+SET amount=amount*1.1
+WHERE bname="VRCE" and cname="ANIL";
