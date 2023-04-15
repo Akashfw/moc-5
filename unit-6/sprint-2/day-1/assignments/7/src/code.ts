@@ -15,8 +15,8 @@ class Person implements IPerson {
          
    }
 
-   PrintFullName():void {
-         console.log(this.first_name+" "+this.last_name)
+   PrintFullName():string {
+         return `${this.first_name} ${this.last_name}`
    }
 }
 let per:IPerson= new Person("akash","shukla","abcd",7);
