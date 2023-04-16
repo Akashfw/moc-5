@@ -3,6 +3,7 @@ export enum ShowType {
 dance = "Dance Show",
 singing = "Singing Show"
 }
+
 export abstract class Show {
     name : String;
     type :ShowType;
@@ -23,16 +24,15 @@ type SeatType = {
     availability : number,
     price : number
 }
+
 export class DanceShow extends Show {
-    name: String;
-    seats:SeatType[];
+    
+    seats:SeatType[]=[];
     
 
-    constructor(name:string, type:ShowType) {
-        super(name,type)
-
-        this.name= name,
-        this.seats=[]
+    constructor(name:string, seats:SeatType[]=[]) {
+        super(name,ShowType.dance)
+        this.seats=seats
         
     }
 
@@ -42,14 +42,17 @@ export class DanceShow extends Show {
 
      bookShow(seat:string,money:number){
 
-        for(let i=0; i<this.seats.length; i++){
-            if(this.seats[i].seat == seat){
-                if(this.seats[i].availability > 0 && this.seats[i].price <= money){
-                    this.seats[i].availability--;
-                    return;
-                }
-            }
+        let c :number = 0;
+     for (let i = 0; i< this.seats.length; i++){
+        if(this.seats[i].seat === seat && this.seats[i].availability > 0 && this.seats[i].price <= money){
+           this.seats[i].availability--;
+           c = 1;
+           break;
         }
+     }
+     if(c === 0 ){
+        throw new Error("Sorry");
+     }
     }
 }
 
@@ -57,8 +60,8 @@ export class ComedyShow extends Show{
     seats : number;
     ticketPrice : number;
 
-    constructor(name : string, seats : number, ticketPrice : number, type:ShowType){
-        super(name,type)
+    constructor(name : string, seats : number, ticketPrice : number ){
+        super(name,ShowType.comedy)
 
         
         this.seats=seats,
@@ -77,24 +80,26 @@ export class ComedyShow extends Show{
 
 export class SingingShow extends Show{
 
-    name : string;
+   
     seats : SeatType[];
 
-    constructor(name:string , seats:SeatType[],type:ShowType){
-        super(name,type);
-        this.name = name,
-        this.seats=[]
+    constructor(name:string , seats:SeatType[]){
+        super(name,ShowType.singing);
+
+        this.seats=seats
     }
 
     bookShow(seat:string,money:number){
-
-        for(let i=0; i<this.seats.length; i++){
-            if(this.seats[i].seat == seat){
-                if(this.seats[i].availability > 0 && this.seats[i].price <= money){
-                    this.seats[i].availability--;
-                    return;
-                }
-            }
+        let c :number = 0;
+        for (let i = 0; i< this.seats.length; i++){
+           if(this.seats[i].seat === seat && this.seats[i].availability > 0 && this.seats[i].price <= money){
+              this.seats[i].availability--;
+              c = 1;
+              break;
+           }
+        }
+        if(c === 0 ){
+           throw new Error("Sorry");
         }
     }
 }
