@@ -35,10 +35,10 @@ export class Player extends Entity{
 }
 
 export class Swordsman extends Player {
-    name:string
-    constructor(health: number, strength: number, defense: number, name: string) {
+    name:string;
+    constructor(health: number, strength: number, defense: number) {
         
-         super(health,strength,defense,name);Player;
+         super(health,strength,defense,"Swordsman")
          this.name = "Swordsman"
     }
     
@@ -47,9 +47,10 @@ export class Swordsman extends Player {
     }
 }
 export class Mage extends Player {
-    constructor(health: number, strength: number, defense: number, name: string){
-        super(health,strength,defense,"Mage");
-        this.name= "Mage"
+    name:string;
+     constructor(health: number, strength: number, defense: number){
+        super(health, strength, defense,"Mage" );
+        this.name="Mage"
     }
     magicAttack(){
 
@@ -57,10 +58,11 @@ export class Mage extends Player {
 }
 
 export class Spearman extends Player {
-    constructor(health: number, strength: number, defense: number, name: string){
-        super(health,strength,defense,"Spearman");
-        this.name= "Spearman"
-    }
+    name:string;
+    constructor(health: number, strength: number, defense: number){
+       super(health, strength, defense,"Spearman");
+       this.name="Spearman"
+   }
     stabAttack(){
         
     }
@@ -74,10 +76,11 @@ export class Enemy  extends Entity {
 }
 
 export class Zombies extends Enemy  {
-    constructor(health: number, strength: number, defense: number, name: string){
-        super(health,strength,defense,"Zombie");
-        this.name= "Zombie"
-    }
+    name:string;
+    constructor(health: number, strength: number, defense: number){
+       super(health, strength, defense,"Zombie" );
+       this.name="Zombie"
+   }
     poisonAttack(){
         
     }
@@ -85,10 +88,11 @@ export class Zombies extends Enemy  {
 }
 
 export class Werewolf extends Enemy {
-    constructor(health: number, strength: number, defense: number, name: string){
-        super(health,strength,defense,"Werewolf");
-        this.name= "Werewolf"
-    }
+    name:string;
+    constructor(health: number, strength: number, defense: number){
+       super(health, strength, defense,"Werewolf" );
+       this.name="Werewolf"
+   }
     biteAttack(){
         
     }
