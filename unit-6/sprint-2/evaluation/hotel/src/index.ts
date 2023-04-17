@@ -28,6 +28,7 @@ class Standard extends hotels {
     NumberOfBeds:number;
     AC:boolean;
     price:number;
+    Rooms:room[];
 
     constructor(NumberOfBeds:number,AC:boolean,price:number,type:"3star" | "5star" | "Resort", name:string, location:string){
         super(type, name, location)
@@ -38,11 +39,13 @@ class Standard extends hotels {
             this.AC=AC
         }
         this.price=price
+        this.Rooms=[]
     }
 
     bookRoom(Room:room){
         if(Room.isAvailable == true){
             Room.isAvailable=false;
+            this.Rooms.push(Room)
             return true
         }else{
             return false
@@ -56,7 +59,7 @@ class Delux extends hotels {
     NumberOfBeds:number;
     AC:boolean;
     price:number;
-
+    Rooms:room[]
     constructor(NumberOfBeds:number,AC:boolean,price:number,type:"3star" | "5star" | "Resort", name:string, location:string){
         super(type, name, location)
         this.NumberOfBeds=NumberOfBeds;
@@ -65,11 +68,13 @@ class Delux extends hotels {
         }else{
             this.AC=AC
         }
-        this.price=price
+        this.price=price;
+        this.Rooms=[];
     }
     bookRoom(Room:room){
         if(Room.isAvailable == true){
             Room.isAvailable=false;
+            this.Rooms.push(Room)
             return true
         }else{
             return false
@@ -83,16 +88,18 @@ class Premium extends hotels {
     NumberOfBeds:number;
     AC:boolean;
     price:number;
-
+    Rooms:room[];
     constructor(NumberOfBeds:number,AC:boolean,price:number,type:"3star" | "5star" | "Resort", name:string, location:string){
         super(type, name, location)
         this.NumberOfBeds=NumberOfBeds;
         this.AC= true;
         this.price=price;
+        this.Rooms=[]
     }
     bookRoom(Room:room){
         if(Room.isAvailable == true){
             Room.isAvailable=false;
+            this.Rooms.push(Room)
             return true
         }else{
             return false
