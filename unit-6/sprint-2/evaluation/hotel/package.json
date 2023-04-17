@@ -1,0 +1,15 @@
+{
+  "name": "hotel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "serve:1": "tsc src/1.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tsc": "^2.0.4"
+  }
+}
