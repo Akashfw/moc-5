@@ -7,7 +7,7 @@ import SectionPage from './Pages/SectionPage'
 import InvalidPage from './Pages/InvalidPage'
 function App() {
   return ( <div className="App">
-      < Home />
+      < AllRoutes/>
   </div>
   )
 }
