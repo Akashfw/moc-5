@@ -1,7 +1,7 @@
 // Write code related to dashboard page here
 let arr= JSON.parse(localStorage.getItem("task-list")) || [];
 let pro_arr= JSON.parse(localStorage.getItem("priority-list")) || [];
-
+let bag=[];
 display(arr);
 
 
@@ -41,7 +41,8 @@ document.getElementById("task-count").innerHTML=arr.length;
 
 function filtertable(){
     let val= document.getElementById("filter").value;
-    let filterdata= arr.filter(function(elem){
+    bag=arr;
+    let filterdata= bag.filter(function(elem){
         return elem.priority == val;
     });
     display(filterdata);
