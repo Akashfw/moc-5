@@ -1,6 +1,5 @@
 // Write code related to dashboard page here
 let arr= JSON.parse(localStorage.getItem("task-list")) || [];
-
 let pro_arr= JSON.parse(localStorage.getItem("priority-list")) || [];
 
 display(arr);
