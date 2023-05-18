@@ -6,6 +6,7 @@ display(arr);
 
 
 function display(arr){
+    document.querySelector("tbody").innerHTML="";
        arr.forEach(function(ele, i){
            let row= document.createElement("tr");
            let ts1= document.createElement("td");
@@ -32,8 +33,16 @@ function display(arr){
 
 function deleteval(ele,i){
     arr.splice(i,1);
-    document.querySelector("tbody").innerHTML="";
     display(arr);
     localStorage.setItem("task-list",JSON.stringify(arr));
 }
 
+document.getElementById("task-count").innerHTML=arr.length;
+
+function filtertable(){
+    let val= document.getElementById("filter").value;
+    let filterdata= arr.filter(function(elem){
+        return elem.priority == val;
+    });
+    display(filterdata);
+}
