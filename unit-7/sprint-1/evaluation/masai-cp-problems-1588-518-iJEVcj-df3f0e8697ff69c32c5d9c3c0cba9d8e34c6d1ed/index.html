@@ -1,6 +1,57 @@
 <html>
   <head>
     <title>Web20-C4</title>
+    <style>
+      *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      #navbar{
+        display: flex;
+        justify-content: space-evenly;
+        background-color: darkcyan;
+        color: white;
+        height: 60px;
+        align-items: center;
+      }
+      #navbar div a{
+        display: inline-block;
+        margin: 0px 20px;
+        text-decoration: none;
+        color: white;
+      }
+      #navbar h2{
+        font-family: cursive;
+        font-weight: 600;
+      }
+      #create{
+        margin-top: 100px;
+        text-align: center;
+      }
+      form{
+        display: flex;
+        flex-direction: column;
+        width: 40%;
+        justify-content: center;
+        align-items: center;
+        margin-left: 30%;
+        background-color: darkcyan;
+        height: 350px;
+        color: white;
+        border-radius: 5px;
+        margin-top: 10px;
+      }
+      form input, select{
+        width: 60%;
+        height: 35px;
+        margin: 5px;
+        text-align: center;
+        font-size: 15px;
+        padding: 10px;
+        border-radius: 5px;
+      }
+    </style>
   </head>
   <body>
     <div id="navbar">
