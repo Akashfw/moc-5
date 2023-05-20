@@ -21,7 +21,7 @@ function display(arr){
         let td6= document.createElement("td");
         td6.innerText=elem.team1goals;
         let td7= document.createElement("td");
-        td7.innerText=elem.team1goals;
+        td7.innerText=elem.team2goals;
         tr.append(td1,td2,td3,td4,td5,td6,td7);
         document.querySelector("tbody").append(tr);
     });
@@ -41,7 +41,7 @@ function fill_year(){
     }else{
         fetch(`https://jsonmock.hackerrank.com/api/football_matches?year=${year}&team1=${team1}&team2=${team2}`).then((res)=>res.json()).then((val)=> display(val.data)).catch((err)=>alert(err));
     }
-
+   
 }
 
 function fill_team1(){
