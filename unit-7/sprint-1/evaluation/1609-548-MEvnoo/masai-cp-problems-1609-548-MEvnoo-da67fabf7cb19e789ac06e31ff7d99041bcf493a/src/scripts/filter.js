@@ -31,6 +31,9 @@ function fill_year(){
     year=document.querySelector("#year").value;
     if(!year){
         year=2011
+    };
+    if(year==2011 && team1=="" && team2==""){
+        fetch(`https://jsonmock.hackerrank.com/api/football_matches?page=2&year=${year}`).then((res)=>res.json()).then((val)=> display(val.data)).catch((err)=>alert(err));
     }
     if(team1=="" && team2==""){
         fetch(`https://jsonmock.hackerrank.com/api/football_matches?year=${year}`).then((res)=>res.json()).then((val)=> display(val.data)).catch((err)=>alert(err));
