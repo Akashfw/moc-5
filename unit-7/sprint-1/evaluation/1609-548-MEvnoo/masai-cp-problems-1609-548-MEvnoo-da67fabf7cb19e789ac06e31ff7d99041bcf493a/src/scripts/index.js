@@ -39,3 +39,7 @@ function next(){
     console.log(count);
     fetch(`https://jsonmock.hackerrank.com/api/football_matches?page=${count}`).then((res)=>res.json()).then((val)=> display(val.data)).catch((err)=>alert(err));
 }
+
+function filter_page(){
+    window.location="./filter.html"
+}

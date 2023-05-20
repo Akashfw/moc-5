@@ -2,9 +2,9 @@
   "name": "rct-201-e1-boilerplate",
   "version": "0.1.0",
   "private": true,
-  "engines":{
-    "npm":">=8.0.0 <9.0.0",
-    "node":"16.16.0"
+  "engines": {
+    "npm": ">=8.0.0 <9.0.0",
+    "node": "16.16.0"
   },
   "dependencies": {
     "cypress": "^11.2.0",
@@ -35,5 +35,11 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "."
+  "homepage": "http://.",
+  "description": "## Submission Instructions [Please note]",
+  "main": "index.js",
+  "devDependencies": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
