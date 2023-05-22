@@ -1,0 +1,76 @@
+*{
+    margin: 0;
+    padding: 0;
+    
+}
+#top{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: auto;
+    width: 100%;
+}
+.top1{
+    background-image: url("https://media.ldscdn.org/images/media-library/technology/young-man-laptop-1271238-wallpaper.jpg?download=true");
+    background-size: 100% 100%;
+}
+
+nav{
+    display: flex;
+    justify-content: space-around;
+    
+    height: 80px;
+    width: 100%;
+}
+.top1 h1{
+    margin-left: 100px;
+    margin-top: 50px;
+    color: coral;
+}
+nav a{
+    text-decoration: none;
+    margin-top: 20px;
+}
+.top2{
+    background-color: rgb(240, 228, 213);
+}
+.top2 div{
+    margin-top: 150px;
+    margin-bottom: 185px;
+}
+#discription1{
+    margin-top: 20px;
+    font-size:18px;
+    font-weight: 100;
+    margin: 35px;
+    font-family: serif;
+    line-height: 2;
+    
+}
+.top2 div p{
+    margin-bottom: 20px ;
+    margin-left: 35px;
+    font-size:16px;
+    font-weight: 100;
+    font-family: serif;
+}
+
+.top2 div h1{
+    font-size: 45px;
+    margin: 35px;
+    font-weight: 50;
+    font-family: sans-serif;
+}
+.top2 div button{
+    margin-left: 35px;
+    padding: 10px 25px;
+    border: 3px solid black;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 35px;
+    background-color: rgb(240, 228, 213) ;
+}
+
+span{
+    color: coral;
+}
