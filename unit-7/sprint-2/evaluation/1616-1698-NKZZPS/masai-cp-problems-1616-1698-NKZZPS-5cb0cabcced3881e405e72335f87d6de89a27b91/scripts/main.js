@@ -137,7 +137,7 @@ async function addNewBooks(event) {
     method:"POST",
     body:data,
     headers:{
-      "content-Type":"applicattion/json"
+      "Content-Type":"applicattion/json"
     },
   });
     getBooksData();
@@ -166,9 +166,42 @@ async function addNewBooks(event) {
 
  async function updateBook(id){
      
-    let data= await fetch(`bookURL/${id}`);
+    let data= await fetch(`${bookURL}/${id}`);
     data=await data.json();
-    console.log(data);
+    updateBookIdInput.value=id;
+updateBookTitleInput.value=data.title; 
+updateBookImageInput.value=data.image; 
+updateBookAuthorInput.value=data.author;
+updateBookCategoryInput.value=data.category; 
+updateBookPriceInput.value=data.price; 
  };
 
- 
+ updateBookBtn.addEventListener("click", Updatebook); 
+
+ async function Updatebook(){
+      let val={
+        title:updateBookTitleInput.value ,
+         image:updateBookImageInput.value ,
+         author:updateBookAuthorInput.value ,
+         category:updateBookCategoryInput.value ,
+        price:updateBookPriceInput.value
+      }
+      val= JSON.stringify(val);
+       let id= Number(updateBookIdInput.value)
+     let res= await fetch(`${bookURL}/${id}`,{
+        method:"PATCH",
+        body:val,
+        headers:{
+          "Content-Type": "application/json"
+        }
+      });
+
+      updateBookIdInput.value=null;
+      updateBookTitleInput.value=null; 
+      updateBookImageInput.value=null; 
+      updateBookAuthorInput.value=null;
+      updateBookCategoryInput.value=null; 
+      updateBookPriceInput.value=null;
+      
+      getBooksData();
+ }
