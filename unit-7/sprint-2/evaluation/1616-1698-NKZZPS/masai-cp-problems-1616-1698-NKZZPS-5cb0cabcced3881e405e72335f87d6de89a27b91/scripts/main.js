@@ -59,6 +59,7 @@ let getBooksData= async ()=>{
 getBooksData();
 
 let  displayData=(data)=>{
+  mainSection.innerHTML=null;
     let cardList= document.createElement("div");
     cardList.setAttribute("class","card-list");
 
@@ -103,5 +104,37 @@ let  displayData=(data)=>{
     });
 
     mainSection.append(cardList)
+
+};
+
+bookCreateBtn.addEventListener("click",addNewBooks());
+
+let addNewBooks = async () =>{
+  let data= {
+    bookTitleInput,
+    bookImageInput,
+    bookCategoryInput,
+    bookAuthorInput,
+    bookPriceInput
+  };
+
+  data= JSON.stringify(data);
+
+  let res= await fetch(bookURL, {
+    method:"POST",
+    body:data,
+    headers:{
+      "content-Type":"applicattion/json"
+    },
+  });
+  
+    bookTitleInput.value=null;
+    bookImageInput.value=null;
+    bookCategoryInput.value=null;
+    bookAuthorInput.value=null;
+    bookPriceInput.value=null;
+
+    getBooksData();
+
 
 }
