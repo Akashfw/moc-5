@@ -94,7 +94,8 @@ let  displayData=(data)=>{
       edit.innerText="Edit"
       edit.onclick =(e)=>{
         e.preventDefault();
-          updateBook(id)
+          updateBook(id);
+          updateBookprice(id);
 
       }
 
@@ -204,4 +205,44 @@ updateBookPriceInput.value=data.price;
       updateBookPriceInput.value=null;
       
       getBooksData();
+ };
+
+
+ let filter = async() =>{
+   let val=searchBySelect.value;
+   if(val=="title"){
+
+   }
  }
+
+ async function updateBookprice(id){
+     
+  let data= await fetch(`${bookURL}/${id}`);
+  data=await data.json();
+  updatePriceBookId.value=id;
+
+  updatePriceBookPrice.value=data.price; 
+};
+
+updatePriceBookPriceButton.addEventListener("click", Updatebookpriceval);
+
+async function Updatebookpriceval(){
+  let val={
+    price:updateBookPriceInput.value
+  }
+  val= JSON.stringify(val);
+   let id= Number(updateBookIdInput.value)
+ let res= await fetch(`${bookURL}/${id}`,{
+    method:"PATCH",
+    body:val,
+    headers:{
+      "Content-Type": "application/json"
+    }
+  });
+
+  updateBookIdInput.value=null;
+ 
+  updateBookPriceInput.value=null;
+  
+  getBooksData();
+};
