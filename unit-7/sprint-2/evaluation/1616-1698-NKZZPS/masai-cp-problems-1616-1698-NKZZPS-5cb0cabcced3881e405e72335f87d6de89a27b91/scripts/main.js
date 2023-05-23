@@ -92,6 +92,14 @@ let  displayData=(data)=>{
       edit.setAttribute("data-id",id);
       edit.href="#"
       edit.innerText="Edit"
+      edit.onclick =(e)=>{
+        e.preventDefault();
+          updateBook(id)
+
+      }
+
+
+
       let delet= document.createElement("button");
       delet.setAttribute("class","card-button");
       delet.setAttribute("data-id",id);
@@ -110,19 +118,21 @@ let  displayData=(data)=>{
 
 };
 
+bookCreateBtn.addEventListener("click",addNewBooks);
 
-
-let addNewBooks = async () =>{
+async function addNewBooks(event) {
+   event.preventDefault();
+  let pri=Number(bookPriceInput.value)
   let data= {
-    bookTitleInput,
-    bookImageInput,
-    bookCategoryInput,
-    bookAuthorInput,
-    bookPriceInput
+    title:bookTitleInput.value,
+    image:bookImageInput.value,
+    category:bookCategoryInput.value,
+    author:bookAuthorInput.value,
+    price:pri, 
   };
 
+  
   data= JSON.stringify(data);
-
   let res= await fetch(bookURL, {
     method:"POST",
     body:data,
@@ -130,17 +140,35 @@ let addNewBooks = async () =>{
       "content-Type":"applicattion/json"
     },
   });
-  
-    bookTitleInput.value=null;
-    bookImageInput.value=null;
-    bookCategoryInput.value=null;
-    bookAuthorInput.value=null;
-    bookPriceInput.value=null;
-
     getBooksData();
 
+    res=await res.json();
+    
+
+    // bookTitleInput.value=null;
+    // bookImageInput.value=null;
+    // bookCategoryInput.value=null;
+    // bookAuthorInput.value=null;
+    // bookPriceInput.value=null;
 
 };
 
 
-bookCreateBtn.addEventListener("click",addNewBooks());
+
+
+
+ async function deletebooks(id){
+     let res= await fetch(`${bookURL}/${id}`,{
+       method:"DELETE",
+     });
+     getBooksData();
+};
+
+ async function updateBook(id){
+     
+    let data= await fetch(`bookURL/${id}`);
+    data=await data.json();
+    console.log(data);
+ };
+
+ 
