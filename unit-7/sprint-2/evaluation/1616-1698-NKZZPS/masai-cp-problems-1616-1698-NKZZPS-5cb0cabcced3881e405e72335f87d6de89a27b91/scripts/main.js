@@ -96,6 +96,9 @@ let  displayData=(data)=>{
       delet.setAttribute("class","card-button");
       delet.setAttribute("data-id",id);
       delet.innerText="Delete";
+      delet.onclick= ()=>{
+        deletebooks(id);
+      }
 
       cardbody.append(tile,aut,cat,pri,edit,delet);
       cardimg.append(img);
@@ -107,7 +110,7 @@ let  displayData=(data)=>{
 
 };
 
-bookCreateBtn.addEventListener("click",addNewBooks());
+
 
 let addNewBooks = async () =>{
   let data= {
@@ -137,4 +140,7 @@ let addNewBooks = async () =>{
     getBooksData();
 
 
-}
+};
+
+
+bookCreateBtn.addEventListener("click",addNewBooks());
