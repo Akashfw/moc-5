@@ -1,0 +1,42 @@
+{
+  "users": [
+    {
+      "name": "Akash Shukla",
+      "email": "akash123@gmail.com",
+      "pass": "789456123",
+      "isDoctor": "true",
+      "id": 1
+    },
+    {
+      "name": "Aman Shukla",
+      "email": "aman123@gmail.com",
+      "pass": "123456789",
+      "isDoctor": "false",
+      "id": 1
+    }
+  ],
+  "appointments": [
+    {
+      "id": 1,
+      "name": "Jane Doe",
+      "image": "https://tse1.explicit.bing.net/th?id=OIP.35ZjQ8mdXgEsz9dB82n2MgAAAA&pid=Api&P=0&h=180",
+      "specialization": "Dermatologist",
+      "experience": 10,
+      "location": "Los Angeles",
+      "date": "2023-04-05T12:00:00.000Z",
+      "slots": 3,
+      "fee": 150
+    },
+    {
+      "id": 2,
+      "name": "Mark Johnson",
+      "image": "https://tse2.mm.bing.net/th?id=OIP.Z8steBIhLgujoI6DzaTCKQHaHI&pid=Api&P=0&h=180",
+      "specialization": "Pediatrician",
+      "experience": 5,
+      "location": "Chicago",
+      "date": "2023-04-06T09:30:00.000Z",
+      "slots": 1,
+      "fee": 100
+    }
+  ]
+}
